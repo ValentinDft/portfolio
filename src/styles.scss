@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'style/colors' as colors;
+@use 'style/fonts' as fonts;
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@400;800&family=Exo&family=Share&family=Ubuntu&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer !important;
+}
+
+body {
+  font-family: fonts.$font-exo;
+  max-width: 100vw;
+  padding: 20px 10%;
+  background-color: colors.$background-color;
+  color: colors.$text-color;
+  border-radius: 10px;
+}
+
+html {
+  margin: 15px;
+  background-color: colors.$background-color-with-opacity;
+}
+
+h1 {
+  font-family: fonts.$font-coda;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+.title {
+  color: colors.$color-primary;
+
+  &-section {
+    @extend .title;
+    line-height: 2;
+    color: colors.$text-color-with-opacity;
+    font-size: 56px;
+    font-family: fonts.$font-coda;
+    margin-bottom: 20px;
+
+    &-left {
+      @extend .title-section;
+      text-align: left;
+    }
+    &-right {
+      @extend .title-section;
+      text-align: right;
+    }
+  }
+}
+
+.react-icons {
+  font-size: 30px;
+
+  &-link {
+    @extend .react-icons;
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: colors.$color-primary;
+      transform: translateY(-5px);
+    }
+  }
+}
+
+.animated-text-word {
+  opacity: 0;
+  animation: translateXAnimation 0.8s ease-in-out forwards;
+}
+
+.dot-title {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: colors.$color-primary;
+  margin-left: 10px;
+}
+
+.title-project-line {
+  width: 100%;
+  height: 1px;
+  background-color: colors.$text-color;
+  opacity: 0.5;
+}
+
+// margin with opacity for mobile
+@media screen and (max-width: 500px) {
+  html {
+    margin: 8px;
+  }
+  body {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .title-section {
+    font-size: 40px;
+  }
+}
