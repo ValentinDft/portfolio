@@ -1,1 +1,18 @@
-<p>topbar works!</p>
+<div class="topbar">
+  <div class="topbar__title">
+    <h1>&#64;valentindft{{urlToDisplay()}}</h1>
+
+    <div class="topbar__title__open-jobs">
+      <div class="topbar__title__open-jobs__bullet" [class.active]="isOpenToWork()"></div>
+      <p class="topbar__title__open-jobs__text" [class.active]="isOpenToWork()">
+        {{ isOpenToWork() ? 'Open to work' : 'Not open to work' }}
+      </p>
+    </div>
+  </div>
+
+  <nav class="topbar__nav">
+    <a routerLink="/" routerLinkActive="topbar__nav--active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/projects" routerLinkActive="topbar__nav--active">Projects</a>
+    <a routerLink="/timelife" routerLinkActive="topbar__nav--active">Timelife</a>
+  </nav>
+</div>

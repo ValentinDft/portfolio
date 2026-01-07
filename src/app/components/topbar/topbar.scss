@@ -1,0 +1,83 @@
+@use 'style/colors' as colors;
+@use 'style/fonts' as fonts;
+
+.topbar {
+  animation: opacityAnimation 1s ease-in-out 0s 1 normal forwards;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    width: 100%;
+    overflow: hidden;
+
+    &__open-jobs {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: 10px;
+      font-family: fonts.$font-ubuntu;
+
+      &__bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background-color: colors.$red;
+
+        &.active {
+          background-color: colors.$green;
+        }
+      }
+
+      &__text {
+        color: colors.$red;
+
+        &.active {
+          color: colors.$green;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+
+    a {
+      display: inline-block;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        top: 22px;
+        left: 0;
+        background-color: colors.$color-primary;
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+    &--active {
+      color: colors.$color-primary;
+    }
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .topbar {
+    grid-template-columns: repeat(1, 100%);
+    &__nav {
+      margin-top: 20px;
+    }
+  }
+}
