@@ -1,0 +1,13 @@
+$xs: 320px;
+$s: 375px;
+$m: 425px;
+$l: 768px;
+$xl: 1024px;
+$xxl: 1440px;
+
+
+@mixin responsive-min-width($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
