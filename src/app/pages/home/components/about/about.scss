@@ -1,0 +1,61 @@
+@use 'style/colors' as colors;
+@use 'style/breakpoints' as breakpoints;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+
+    p {
+      text-align: left;
+      color: colors.$text-color-with-opacity;
+      width: 100%;
+    }
+
+    &__profil-pic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+@include breakpoints.responsive-min-width(breakpoints.$l) {
+  .about {
+    &__description {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+
+      &__profil-pic {
+        width: auto;
+      }
+    }
+
+    &__social-links {
+      width: 50%;
+
+      a {
+        transition: transform .3s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

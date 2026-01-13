@@ -28,41 +28,40 @@ html {
   background-color: colors.$background-color-with-opacity;
 }
 
-//.title {
-//  color: colors.$color-primary;
-//
-//  &-section {
-//    @extend .title;
-//    line-height: 2;
-//    color: colors.$text-color-with-opacity;
-//    font-size: 40px;
-//    font-family: fonts.$font-coda;
-//    margin-bottom: 20px;
-//
-//    &-left {
-//      @extend .title-section;
-//      text-align: left;
-//    }
-//    &-right {
-//      @extend .title-section;
-//      text-align: right;
-//    }
-//  }
-//}
+.title {
+  color: colors.$color-primary;
+
+  &-section {
+    @extend .title;
+    line-height: 2;
+    color: colors.$text-color;
+    font-size: 40px;
+    margin-bottom: 20px;
+
+    &-left {
+      @extend .title-section;
+      text-align: left;
+    }
+    &-right {
+      @extend .title-section;
+      text-align: right;
+    }
+  }
+}
 
 //.animated-text-word {
 //  opacity: 0;
 //  animation: translateXAnimation 0.8s ease-in-out forwards;
 //}
 //
-//.dot-title {
-//  display: inline-block;
-//  width: 15px;
-//  height: 15px;
-//  border-radius: 100%;
-//  background-color: colors.$color-primary;
-//  margin-left: 10px;
-//}
+.dot-title {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: colors.$color-primary;
+  margin-left: 10px;
+}
 //
 //.title-project-line {
 //  width: 100%;
@@ -72,7 +71,7 @@ html {
 //}
 
 // margin with opacity for mobile
-@include breakpoints.responsive-min-width(breakpoints.$l){
+@include breakpoints.responsive-min-width(breakpoints.$m){
   html {
     margin: 15px;
   }
