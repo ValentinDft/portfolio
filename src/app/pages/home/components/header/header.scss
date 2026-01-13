@@ -1,0 +1,46 @@
+@use 'style/colors' as colors;
+@use 'style/breakpoints' as breakpoints;
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: calc(100dvh - 145px);
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    color: colors.$text-color-with-opacity;
+    font-weight: normal;
+  }
+
+  p {
+    margin-top: 20px;
+    color: colors.$text-color-with-opacity;
+  }
+
+  span {
+    color: colors.$color-primary;
+  }
+
+  &__img {
+    margin-top: 10%;
+  }
+}
+
+@include breakpoints.responsive-min-width(breakpoints.$l) {
+  .header {
+    height: calc(100dvh - 120px);
+
+    h1 {
+      font-size: 80px;
+    }
+
+    h2 {
+      font-size: 46px;
+    }
+  }
+}
